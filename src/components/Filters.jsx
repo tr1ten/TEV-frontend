@@ -4,7 +4,7 @@ const Filters = ({ onSearch, onFilter }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [domain, setDomain] = useState('');
   const [gender, setGender] = useState('');
-  const [availability, setAvailability] = useState('');
+  const [available, setavailable] = useState('');
   const [allDomains, setAllDomains] = useState([]); // ['Engineering', 'Sales', 'Marketing', 'Design', 'Support', 'Human Resources'
   const [allGenders,setAllGenders] = useState([]);
   useEffect(() => {
@@ -20,7 +20,7 @@ const Filters = ({ onSearch, onFilter }) => {
   };
 
   const handleFilter = () => {
-    const filters = { domain, gender, availability };
+    const filters = { domain, gender, available };
     onFilter(filters);
   };
 
@@ -104,8 +104,8 @@ const Filters = ({ onSearch, onFilter }) => {
 
       <select 
         className='filter-menu'
-      value={availability} onChange={e => setAvailability(e.target.value)}>
-        <option value="">Select Availability</option>
+      value={available} onChange={e => setavailable(e.target.value)}>
+        <option value="">Select available</option>
         <option value="true">Available</option>
         <option value="false">Not Available</option>
       </select>

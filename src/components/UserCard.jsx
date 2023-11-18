@@ -11,9 +11,9 @@ const UserCard = ({ user,noImage }) => {
   return (
     <div
     className={"card-container"
-    + (!user.available ? " card-disable" : "")
+    + (!user.available || user.mark ? " card-disable" : "")
     }
-    draggable={!noImage && user.available}
+    draggable={!noImage && user.available && !user.mark}
     onDragStart={(e) => handleDragStart(e, user)}
     >
       {!noImage && <img 

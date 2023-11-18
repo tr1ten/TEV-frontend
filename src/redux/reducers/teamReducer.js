@@ -1,4 +1,4 @@
-import { ADD_TEAM_MEMBER, FETCH_TEAMS, UPDATE_TEAM_NAME } from '../actions/types';
+import { ADD_TEAM_MEMBER, CLEAR_TEAM, FETCH_TEAMS, UPDATE_TEAM_NAME } from '../actions/types';
 
 const initialState = {
   teams: [],
@@ -17,6 +17,8 @@ const teamReducer = (state = initialState, action) => {
       return { ...state, currentTeamMembers: 
         [...state.currentTeamMembers, action.payload]
       };
+      case CLEAR_TEAM:
+        return { ...state, currentTeamName: '', currentTeamMembers: [] };
 
     default:
       return state;

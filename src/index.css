@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+body{
+  @apply overflow-x-hidden;
+}
 /* Select tag styling */
 .filter-menu {
   @apply bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-base cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
@@ -28,7 +30,12 @@
 
 .users-list {
   @apply flex flex-wrap gap-3 justify-center items-center;
-  max-height: 80vh;
+  width: 100%;
+  overflow-y: scroll
+}
+.teams-list {
+  @apply flex flex-wrap gap-2 items-start flex-row md:gap-3 md:items-center m-2;
+  max-height: 40vh;
   width: 100%;
   overflow-y: scroll
 }

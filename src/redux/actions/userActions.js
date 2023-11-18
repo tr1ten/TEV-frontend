@@ -12,12 +12,13 @@ export const fetchUsers = (
   let query = `?page=${page}&limit=${limit}`;
   if(filters.domain) query += `&domain=${filters.domain}`;
   if(filters.gender) query += `&gender=${filters.gender}`;
-  if(filters.availability) query += `&availability=${filters.availability === 'Available' ? true : false}`;
+  if(filters.available) query += `&available=${filters.available}`;
   if(searchTerm) query += `&search=${searchTerm}`;
   fetch(BASE_URL+query,
     )
     .then(res => res.json())
-    .then(users => dispatch({ type: FETCH_USERS, payload: users }));
+    .then(users => {
+      ;dispatch({ type: FETCH_USERS, payload: users })});
 };
 
 export const searchUsers = searchTerm => dispatch => {

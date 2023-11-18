@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import UserCard from './UserCard';
 
-const UsersList = ({ users, noImage}) => {
+const UsersList = ({ users, noImage,mxh="80vh"}) => {
   // Apply search and filter logic to users
   
   return (
    <div>
      <div
     className="users-list"
+    style={
+      {
+        maxHeight:mxh,
+        overflowY:'auto'
+      }
+    }
     >
     {
       users.length === 0 ? <h1

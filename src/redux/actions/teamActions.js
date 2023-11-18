@@ -1,4 +1,4 @@
-import { ADD_TEAM_MEMBER,FETCH_TEAMS,UPDATE_TEAM_NAME } from './types';
+import { ADD_TEAM_MEMBER,FETCH_TEAMS,UPDATE_TEAM_NAME,CLEAR_TEAM } from './types';
 export const BASE_URL = 'http://127.0.0.1:3001/api/team';
 
 // Action creators
@@ -17,3 +17,7 @@ export const updateTeamName = teamName => dispatch => {
 export const addMember = user => dispatch => {
   dispatch({ type: ADD_TEAM_MEMBER, payload: user });
 }
+
+export const resetTeam = () => dispatch => {
+  dispatch({ type: CLEAR_TEAM });
+};

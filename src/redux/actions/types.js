@@ -9,3 +9,4 @@ export const FETCH_TEAMS = 'FETCH_TEAMS';
 export const UPDATE_TEAM_NAME = 'UPDATE_TEAM_NAME';
 export const ADD_TEAM_MEMBER = 'ADD_TEAM_MEMBER';
 export const REMOVE_TEAM_MEMBER = 'REMOVE_TEAM_MEMBER';
+export const CLEAR_TEAM = 'CLEAR_TEAM';

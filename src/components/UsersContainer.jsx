@@ -6,11 +6,12 @@ import {
   filterUsers,
   updatePage,
 } from "../redux/actions/userActions";
-import { addMember, updateTeamName,fetchTeams,BASE_URL } from "../redux/actions/teamActions";
+import { addMember, updateTeamName,fetchTeams,BASE_URL, resetTeam } from "../redux/actions/teamActions";
 import UsersList from "./UsersList";
 import Filters from "./Filters";
 import Team from "./Team";
 import Pagination from "./Pagination";
+import TeamList from "./TeamList";
 
 const UsersContainer = ({
   users,
@@ -26,6 +27,7 @@ const UsersContainer = ({
   updateTeamName,
   addMember,
   fetchTeams,
+  resetTeam,
   teams
 }) => {
   console.log("UsersContainer", users," name ",currentTeamName,"teams ",teams);
@@ -66,6 +68,9 @@ const UsersContainer = ({
           console.log(team);
           alert(`Team ${team.team_name} created successfully`);
           fetchTeams();
+        }
+        ).finally(() => {
+          resetTeam();
         }
         );
     }
@@ -112,12 +117,12 @@ const UsersContainer = ({
               "
             >
               {" "}
-              Current Team:
+              Your Team
               <input
                 required
                 value={currentTeamName}
                 placeholder="Team Name"
-                className="inline border-2 border-black"
+                className="inline border-2 border-black m-2"
                 onChange={(e) => updateTeamName(e.target.value)}
               />
               <button className="btn" onClick={handleCreateTeam}>Submit Team</button>
@@ -140,7 +145,7 @@ const UsersContainer = ({
                   Drag & Drop User
                 </h1>
               ) : (
-                <UsersList noImage={true} users={currentTeamMembers} />
+                <UsersList mxh="40vh" noImage={true} users={currentTeamMembers} />
               )}
             </div>
 
@@ -164,7 +169,8 @@ const UsersContainer = ({
                   No Teams
                 </h1>
                 :
-               teams.map(team =><Team key={team._id} team={team}/>)}
+                <TeamList teams={teams}/>
+               }
             </div>
           </div>
         </div>
@@ -175,9 +181,19 @@ const UsersContainer = ({
 
 const mapStateToProps = (state) => {
   let currentTeamMembers = state.team.currentTeamMembers;
+  // mark all those user having same domain as team members as unavailable
+  const users = state.users.users.map(user => {
+    if(currentTeamMembers.find(member => member.domain === user.domain)){
+      return {...user,mark:true};
+    }
+    else{
+      return user;
+    }
+  }
+  );
   // find user id
   return {
-    users: state.users.users,
+    users,
     filters: state.users.filters,
     searchTerm: state.users.searchTerm,
     page: state.users.page,
@@ -195,4 +211,5 @@ export default connect(mapStateToProps, {
   addMember,
   updateTeamName,
   fetchTeams,
+  resetTeam
 })(UsersContainer);

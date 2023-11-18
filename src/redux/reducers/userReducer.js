@@ -3,7 +3,7 @@ import { FETCH_USERS, SEARCH_USERS, FILTER_USERS, UPDATE_PAGE } from '../actions
 const initialState = {
   users: [],
   searchTerm: '',
-  filters: { domain: '', gender: '', availability: '' },
+  filters: { domain: '', gender: '', available: '' },
   page: 1,
   limit: 20,
 };
