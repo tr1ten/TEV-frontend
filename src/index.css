@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Select tag styling */
+.filter-menu {
+  @apply bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-base cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn{ 
+  @apply bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 m-1 rounded;
+}
+/* // fixed size with padding and shadow */
+.card-container {
+  @apply flex flex-col flex-wrap justify-center  shadow-lg rounded-lg p-4 border-2;
+}
+
+.card-disable{
+  @apply opacity-50;
+}
+
+.card-container h3 {
+  @apply text-xl font-medium text-gray-700 text-center;
+}
+.avatar {
+  @apply w-24 h-24 rounded-full mx-auto;
+}
+
+.users-list {
+  @apply flex flex-wrap gap-3 justify-center items-center;
+  max-height: 80vh;
+  width: 100%;
+  overflow-y: scroll
+}
+
+.header {
+  @apply flex flex-col items-center justify-center bg-gray-50 p-10;
+}
+
+.header h1 {
+  @apply text-4xl font-bold text-gray-700;
+}
+
+.f-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.f-item-2{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  text-align: center;
+  border: 1px solid black;
 }
