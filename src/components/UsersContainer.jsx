@@ -106,7 +106,11 @@ const UsersContainer = ({
             totalPages={30}
           />
         </div>
-        <div className="f-item flex flex-col">
+        <div className="f-item flex flex-col" 
+        style={{
+          background:"floralwhite"
+        }}
+        >
           <div className=" border-2 border-black f-item flex flex-col">
             <h1
               className="
@@ -150,7 +154,11 @@ const UsersContainer = ({
             </div>
 
           </div>
-          <div className=" border-2 border-black f-item">
+          <div 
+           style={{
+          background:"aliceblue"
+        }}
+          className=" border-2 border-black f-item">
             <h1
               className="
               text-2xl

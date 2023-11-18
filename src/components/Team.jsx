@@ -10,6 +10,7 @@ const Team = ({ team }) => {
     <div className='flex flex-col gap-2
       border-2
       border-black
+      bg-white
       p-2
 
 
