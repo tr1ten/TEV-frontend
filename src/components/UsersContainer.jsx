@@ -141,8 +141,8 @@ const UsersContainer = ({
               onDragOver={handleAllowDrop}
             >
               {currentTeamMembers.length === 0 ? (
-                <h1 className=" text-center text-gray-500 opacity-40">
-                  Drag & Drop User
+                <h1 className=" text-center text-gray-500 opacity-40 text-2xl">
+                  Drag & Drop User Here
                 </h1>
               ) : (
                 <UsersList mxh="40vh" noImage={true} users={currentTeamMembers} />
@@ -213,3 +213,4 @@ export default connect(mapStateToProps, {
   fetchTeams,
   resetTeam
 })(UsersContainer);
+

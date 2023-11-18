@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-const BASE_URL = 'http://127.0.0.1:3001/api'
+const BASE_URL = 'https://tev-backend.vercel.app/api'
 const Filters = ({ onSearch, onFilter }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [domain, setDomain] = useState('');
   const [gender, setGender] = useState('');
   const [available, setavailable] = useState('');
-  const [allDomains, setAllDomains] = useState([]); // ['Engineering', 'Sales', 'Marketing', 'Design', 'Support', 'Human Resources'
+  const [allDomains, setAllDomains] = useState([]); 
   const [allGenders,setAllGenders] = useState([]);
   useEffect(() => {
     fetch(`${BASE_URL}/domains`)

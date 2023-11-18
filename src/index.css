@@ -12,7 +12,6 @@ body{
 .btn{ 
   @apply bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 m-1 rounded;
 }
-/* // fixed size with padding and shadow */
 .card-container {
   @apply flex flex-col flex-wrap justify-center  shadow-lg rounded-lg p-4 border-2;
 }
@@ -31,17 +30,19 @@ body{
 .users-list {
   @apply flex flex-wrap gap-3 justify-center items-center;
   width: 100%;
+  min-height: 42vh;
   overflow-y: scroll
 }
 .teams-list {
   @apply flex flex-wrap gap-2 items-start flex-row md:gap-3 md:items-center m-2;
   max-height: 40vh;
   width: 100%;
-  overflow-y: scroll
+  overflow-y: scroll;
+
 }
 
 .header {
-  @apply flex flex-col items-center justify-center bg-gray-50 p-10;
+  @apply flex flex-col items-center justify-center bg-gray-200 p-10;
 }
 
 .header h1 {

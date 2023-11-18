@@ -1,7 +1,5 @@
 import React from "react";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
-// style using tailwindcss
-// pagination toolbar for next and prev button and page number
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;

@@ -1,6 +1,5 @@
 import { FETCH_USERS, SEARCH_USERS, FILTER_USERS } from './types';
-const BASE_URL = 'http://127.0.0.1:3001/api/users';
-// Action creators
+const BASE_URL = 'https://tev-backend.vercel.app/api/users';
 export const fetchUsers = (
   filters,
   searchTerm,
@@ -8,7 +7,6 @@ export const fetchUsers = (
   limit = 20,
 ) => dispatch => {
   // Fetch users from API or database
-  // Update state using dispatch({ type: FETCH_USERS, payload: fetchedUsers });
   let query = `?page=${page}&limit=${limit}`;
   if(filters.domain) query += `&domain=${filters.domain}`;
   if(filters.gender) query += `&gender=${filters.gender}`;

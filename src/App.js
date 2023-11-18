@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import UsersContainer from './components/UsersContainer';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -12,9 +13,15 @@ const App = () => {
       >
       <h1
       className='header-title'
-      >Team Picker</h1>
+      >Team Creator</h1>
+      <p>
+        {/* cool slogan */}
+        Create your own team with your own members
+
+      </p>
       </div>
         <UsersContainer />
+        <Footer/>
       </div>
     </Provider>
   );

@@ -6,7 +6,6 @@ const Team = ({ team }) => {
   if (!team) {
     return null;
   }
-// inline styling using tailwind css classes list item type view title is team name and description is team members
   return (
     <div className='flex flex-col gap-2
       border-2
