@@ -1,4 +1,4 @@
-import { FETCH_USERS, SEARCH_USERS, FILTER_USERS, UPDATE_PAGE } from '../actions/types';
+import { FETCH_USERS, SEARCH_USERS, FILTER_USERS, UPDATE_PAGE, UPDATE_LOADING } from '../actions/types';
 
 const initialState = {
   users: [],
@@ -6,6 +6,7 @@ const initialState = {
   filters: { domain: '', gender: '', available: '' },
   page: 1,
   limit: 20,
+  laoding: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -24,6 +25,10 @@ const userReducer = (state = initialState, action) => {
     case UPDATE_PAGE:
       console.log('UPDATE_PAGE', action.payload);
       return { ...state, page: action.payload };
+    
+    case UPDATE_LOADING:
+      console.log('UPDATE_LOADING', action.payload);
+      return { ...state, loading: action.payload };
 
     default:
       return state;

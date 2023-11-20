@@ -5,6 +5,7 @@ import {
   searchUsers,
   filterUsers,
   updatePage,
+  updateLoading,
 } from "../redux/actions/userActions";
 import { addMember, updateTeamName,fetchTeams,BASE_URL, resetTeam } from "../redux/actions/teamActions";
 import UsersList from "./UsersList";
@@ -12,6 +13,7 @@ import Filters from "./Filters";
 import Team from "./Team";
 import Pagination from "./Pagination";
 import TeamList from "./TeamList";
+import Loading from "./Loading";
 
 const UsersContainer = ({
   users,
@@ -28,7 +30,8 @@ const UsersContainer = ({
   addMember,
   fetchTeams,
   resetTeam,
-  teams
+  teams,
+  loading,
 }) => {
   console.log("UsersContainer", users," name ",currentTeamName,"teams ",teams);
   useEffect(() => {
@@ -98,7 +101,7 @@ const UsersContainer = ({
               {" "}
               Users
             </h1>
-          <UsersList users={users} filters={filters} />
+         {loading ? <Loading/> :  <UsersList users={users} filters={filters} />}
           <hr className="mt-4"></hr>
           <Pagination
             currentPage={page}
@@ -149,7 +152,7 @@ const UsersContainer = ({
                   Drag & Drop User Here
                 </h1>
               ) : (
-                <UsersList mxh="40vh" noImage={true} users={currentTeamMembers} />
+                 <UsersList mxh="40vh" noImage={true} users={currentTeamMembers} />
               )}
             </div>
 
@@ -207,7 +210,8 @@ const mapStateToProps = (state) => {
     page: state.users.page,
     currentTeamName: state.team.currentTeamName,
     currentTeamMembers,
-    teams: state.team.teams
+    teams: state.team.teams,
+    loading: state.users.loading
   };
 };
 
@@ -219,6 +223,6 @@ export default connect(mapStateToProps, {
   addMember,
   updateTeamName,
   fetchTeams,
-  resetTeam
+  resetTeam,
 })(UsersContainer);
 

@@ -3,6 +3,7 @@ export const FETCH_USERS = 'FETCH_USERS';
 export const SEARCH_USERS = 'SEARCH_USERS';
 export const FILTER_USERS = 'FILTER_USERS';
 export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const UPDATE_LOADING = 'UPDATE_LOADING';
 
 // Team actions
 export const FETCH_TEAMS = 'FETCH_TEAMS';

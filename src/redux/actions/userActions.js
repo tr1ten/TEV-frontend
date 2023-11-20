@@ -12,11 +12,15 @@ export const fetchUsers = (
   if(filters.gender) query += `&gender=${filters.gender}`;
   if(filters.available) query += `&available=${filters.available}`;
   if(searchTerm) query += `&search=${searchTerm}`;
+  dispatch({ type: 'UPDATE_LOADING', payload: true });
   fetch(BASE_URL+query,
     )
     .then(res => res.json())
     .then(users => {
-      ;dispatch({ type: FETCH_USERS, payload: users })});
+      ;dispatch({ type: FETCH_USERS, payload: users })}).finally(() => {
+      dispatch({ type: 'UPDATE_LOADING', payload: false 
+      });
+    });
 };
 
 export const searchUsers = searchTerm => dispatch => {
@@ -30,3 +34,7 @@ export const filterUsers = filters => dispatch => {
 export const updatePage = page => dispatch => {
   dispatch({ type: 'UPDATE_PAGE', payload: page });
 };
+
+export const updateLoading = loading => dispatch => {
+  dispatch({ type: 'UPDATE_LOADING', payload: loading });
+}
